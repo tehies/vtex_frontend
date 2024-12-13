@@ -325,7 +325,9 @@ const ProductPage = () => {
     useEffect(() => {
         const fetchSkuAndPrice = async () => {
             try {
+                // const skuResponse = await axios.get(`https://vtex-backend-l0v5.onrender.com/sku/${skuId}`);
                 const skuResponse = await axios.get(`https://vtex-backend-l0v5.onrender.com/sku/${skuId}`);
+                
                 setSku(skuResponse.data);
 
                 const pricingResponse = await axios.get(`https://vtex-backend-l0v5.onrender.com/pricing/${skuId}`);
