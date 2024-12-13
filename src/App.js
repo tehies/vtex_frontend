@@ -8,6 +8,7 @@ import Header from './components/Header';
 import CollectionPage from './components/CollectionPage';
 import SearchComponent from './components/SearchComponent'
 import { useTranslation } from 'react-i18next';
+import Cart from './components/Cart';
 function App() {
   const {t} = useTranslation();
 
@@ -57,6 +58,7 @@ function App() {
             <Route path="/comfortable-clothes" element={<CollectionPage id={137} />} />
             <Route path="/dresses-and-kaftans" element={<CollectionPage id={138} />} />
             <Route path="/search-results" element={<SearchComponent />} />
+            <Route path="/cart/:orderFormId" element={<Cart />} />
           </Routes>
         </main>
       </div>
