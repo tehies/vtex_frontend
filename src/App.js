@@ -1,66 +1,5 @@
-// import React from 'react';
-// import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom";
-
-// import './App.css';
-// import ProductGrid from './components/ProductGrid';
-// import ProductPage from './components/ProductPage';
-// import Banner from './components/Banner';
-// import Header from './components/Header';
-// import CollectionPage from './components/CollectionPage';
-
-// function App() {
-//   return (
-//     <Router>
-//       <div className="App">
-//         <header className="App-header">
-//           <Header />
-//         </header>
-//         <main>
-//           <Routes>
-//             <Route
-//               path="/"
-//               element={
-//                 <>
-//                   <Banner
-//                     imageSrc="https://a.storyblok.com/f/169304/5989x3889/fa5946e402/leem-sale_web-banners-02-1.jpg/m/1440x0/filters:quality(95)"
-//                     title="Black Friday Discounts."
-//                     description="30% off on seasonal designs"
-//                     productid="138"
-//                   />
-//                   <Banner
-//                     imageSrc="https://a.storyblok.com/f/169304/5989x3890/7186bcf1ce/leem_webbannerimages_20nov2024-01.jpg/m/1440x0/filters:quality(95)"
-//                     title="Distinctive designs of furs and bishts"
-//                     description="Explore the luxury of traditional touches with a distinctive modern style."
-//                     productid="137"
-//                   />
-//                   <ProductGrid myId={138} />
-//                   <Banner
-//                     imageSrc="https://a.storyblok.com/f/169304/5988x3890/00cfe0d863/leem_webbannerimages_20nov2024.jpg/m/1440x0/filters:quality(95)"
-//                     title="Pieces that exude warmth and elegance."
-//                     description="Explore the perfect blend of elegance and warmth."
-//                   // productid={139}
-//                   />
-//                   <ProductGrid myId={139} />
-//                   <CollectionPage />
-//                 </>
-//               }
-//             />
-//             <Route path="/product/:id" element={<ProductPage />} />
-
-//           </Routes>
-//         </main>
-//       </div>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
 import './App.css';
 import ProductGrid from './components/ProductGrid';
 import ProductPage from './components/ProductPage';
@@ -68,7 +7,10 @@ import Banner from './components/Banner';
 import Header from './components/Header';
 import CollectionPage from './components/CollectionPage';
 import SearchComponent from './components/SearchComponent'
+import { useTranslation } from 'react-i18next';
 function App() {
+  const {t} = useTranslation();
+
   return (
     <Router>
       <div className="App">
@@ -84,21 +26,21 @@ function App() {
                 <>
                   <Banner
                     imageSrc="https://a.storyblok.com/f/169304/5989x3889/fa5946e402/leem-sale_web-banners-02-1.jpg/m/1440x0/filters:quality(95)"
-                    title="Black Friday Discounts."
-                    description="30% off on seasonal designs"
+                    title={t("bannertext")}
+                    description={t("description")}
                     productid="138"
                   />
                   <Banner
                     imageSrc="https://a.storyblok.com/f/169304/5989x3890/7186bcf1ce/leem_webbannerimages_20nov2024-01.jpg/m/1440x0/filters:quality(95)"
-                    title="Distinctive designs of furs and bishts"
-                    description="Explore the luxury of traditional touches with a distinctive modern style."
+                    title={t("bannertext1")}
+                    description={t("description1")}
                     productid="137"
                   />
                   <ProductGrid myId={138} />
                   <Banner
                     imageSrc="https://a.storyblok.com/f/169304/5988x3890/00cfe0d863/leem_webbannerimages_20nov2024.jpg/m/1440x0/filters:quality(95)"
-                    title="Pieces that exude warmth and elegance."
-                    description="Explore the perfect blend of elegance and warmth."
+                    title={t("bannertext2")}
+                    description={t("description2")}
                     productid="138"
                   />
                   <ProductGrid myId={139} />

@@ -13,7 +13,7 @@ const CollectionProductGrid = ({ id }) => {
     useEffect(() => {
         const fetchCollectionProducts = async () => {
             try {
-                const response = await axios.get(`https://vtex-backend.onrender.com/collectionProduct?collectionId=${collectionId}`);
+                const response = await axios.get(`https://vtex-backend-l0v5.onrender.com/collectionProduct?collectionId=${collectionId}`);
                 // const response = await axios.get(`http://localhost:3000/collectionProduct?collectionId=${collectionId}`);
                 console.log('API Response:', response);
 
