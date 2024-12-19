@@ -115,7 +115,7 @@ const CollectionPage = ({ id }) => {
                                 />
                                 <div className="product-name">{product.ProductName}</div>
                                 <p className="product-price">
-                                    {product.Price ? `$${(product.Price / 100).toFixed(2)}` : 'Price not available'}
+                                    {product.Price ? `$${product.Price.toFixed(2)}` : 'Price not available'}
                                 </p>
                             </div>
                         </Link>

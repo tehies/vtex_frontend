@@ -191,7 +191,7 @@ const ProductPage = () => {
 
                     </p>
                     <p className="single_product-price">
-                        Price: {price ? `$ ${(price / 100).toFixed(2)}` : `${0}`}
+                        Price: {price ? `$ ${price.toFixed(2)}` : `${0}`}
                     </p>
                     <div className='addtocartBTN'>
                         <button onClick={handleAddToCart}>Add to Cart</button>

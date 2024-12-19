@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SearchModal from "./SearchModal";
 import { useTranslation } from "react-i18next";
-
+import { useSelector } from 'react-redux';
 const languages = [
     { code: "en", lang: "English" },
     { code: "ar", lang: "Arabic" },
@@ -24,10 +24,15 @@ const Header = () => {
 
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+
+    const cart = useSelector((state) => state.cart.orderForm);
+
     const toggleSearchModal = () => {
         setIsSearchOpen((prevState) => !prevState);
     };
-
+    const getCartItemCount = () => {
+        return cart.items.reduce((total, item) => total + item.quantity, 0);
+        };
     return (
         <header className="header">
             <div className="header-top">
@@ -49,7 +54,7 @@ const Header = () => {
                                 ></path>
                             </svg>
                         </i>
-                        <span className="icon-counter">1</span>
+                        <span className="icon-counter">{getCartItemCount()}</span>
                         <i className="icon-heart">
                             <svg
                                 width="24"
