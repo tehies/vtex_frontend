@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { setOrderForm, clearCart, incrementQuantity, decrementQuantity } from '../../Redux/cartSlice';
-import './Cart.css';
+import { setOrderForm, clearCart, incrementQuantity, decrementQuantity } from './cartSlice';
 
 const Cart = () => {
     const { orderFormId } = useParams();
