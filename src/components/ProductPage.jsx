@@ -47,7 +47,7 @@ const ProductPage = () => {
         const fetchSkuAndPrice = async () => {
             try {
                 // Fetch SKU details
-                const skuResponse = await axios.get(`https://vtex-backend.onrender.com/sku/${skuId}`);
+                const skuResponse = await axios.get(`https://vtex-backend-l0v5.onrender.com/sku/${skuId}`);
                 const skuData = skuResponse.data;
     
                 // Extract Arabic title and description
@@ -69,7 +69,7 @@ const ProductPage = () => {
                 });
     
                 // Fetch Pricing details
-                const pricingResponse = await axios.get(`https://vtex-backend.onrender.com/pricing/${skuId}`);
+                const pricingResponse = await axios.get(`https://vtex-backend-l0v5.onrender.com/pricing/${skuId}`);
                 setPrice(pricingResponse.data.basePrice);
             } catch (err) {
                 console.error('Error fetching data:', err);
@@ -92,7 +92,7 @@ const ProductPage = () => {
 
             if (orderFormId == null) {
 
-                const { data } = await axios.get('https://vtex-backend.onrender.com/cart');
+                const { data } = await axios.get('https://vtex-backend-l0v5.onrender.com/cart');
                 orderFormId = data.orderFormId
                 localStorage.setItem('orderFormId', data.orderFormId)
             }
@@ -102,7 +102,7 @@ const ProductPage = () => {
 
             // dispatch(setOrderForm(data));
 
-            const API_BASE_URL = "https://vtex-backend.onrender.com";
+            const API_BASE_URL = "https://vtex-backend-l0v5.onrender.com";
 
             let response_add = await axios.post(`${API_BASE_URL}/add-to-cart/${orderFormId}`, {
                 orderItems: [
