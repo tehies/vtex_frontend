@@ -7,7 +7,7 @@ import { setOrderForm, clearCart, incrementQuantity, decrementQuantity } from '.
 
 const Cart = () => {
     const { orderFormId } = useParams();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const cart = useSelector((state) => state.cart.orderForm);
     const dispatch = useDispatch();
@@ -48,6 +48,9 @@ const Cart = () => {
         dispatch(clearCart());
 
         localStorage.removeItem('orderFormId');
+    };
+    const calculateTotalPrice = () => {
+        return cart.items.reduce((total, item) => total + item.price * item.quantity, 0); // Calculate total price
     };
 
     if (loading) {
@@ -120,16 +123,16 @@ const Cart = () => {
                                 </tr>
                             ))}
                         </tbody>
-                        {/* <tfoot>
+                        <tfoot>
                             <tr>
-                                <td colSpan="4">
-                                    <strong>Total Value:</strong>
+                                <td colSpan="4" style={{ textAlign: "right" }}>
+                                    <strong>Total Price:</strong>
                                 </td>
                                 <td>
-                                    ${(cart.value / 100).toFixed(2)}
+                                    <strong>${(calculateTotalPrice() / 100).toFixed(2)}</strong>
                                 </td>
                             </tr>
-                        </tfoot> */}
+                        </tfoot>
                     </table>
                 ) : (
                     <p>No items in the cart</p>
