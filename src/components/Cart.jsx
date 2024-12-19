@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { setOrderForm, clearCart, incrementQuantity, decrementQuantity } from './cartSlice';
-
+import { setOrderForm, clearCart, incrementQuantity, decrementQuantity } from '../../Redux/cartSlice';
+import './Cart.css';
 
 const Cart = () => {
     const { orderFormId } = useParams();
@@ -49,6 +49,7 @@ const Cart = () => {
 
         localStorage.removeItem('orderFormId');
     };
+
     const calculateTotalPrice = () => {
         return cart.items.reduce((total, item) => total + item.price * item.quantity, 0); // Calculate total price
     };
