@@ -1,0 +1,227 @@
+
+.footer {
+    background-color: #f8f7f6;
+    color: #a78a8a;
+    flex-shrink: 0;
+    /* padding-bottom: 1rem;
+    padding-top: 3.5rem; */
+    /* padding: 1.5rem 8rem; */
+    padding: 1.5rem 1.5rem;
+}
+ul.contact-section.contact-section--grid.footer__contact.row {
+    padding-right: 0;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-left: -.5rem;
+    margin-right: -.5rem; */
+    direction: rtl;
+    gap: 10px;
+}
+.footer__logo-container-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.footer__logo {
+    color: #00524d;
+    height: 1.6875rem;
+    width: 4.6875rem;
+}
+.footer__welcome-text {
+    color: #000;
+}
+.header-normal-light, .header-normal-regular {
+    font-size: 2rem;
+    letter-spacing: .8px;
+    line-height: 2.3125rem;
+}
+.footer__account-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+}
+.footer__button {
+    height: 3rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: auto;
+}
+.cta--theme-primary {
+    background-color: #a7ded9;
+    color: #00524d;
+}
+.cta--theme .cta__label {
+    text-transform: uppercase;
+}
+.button-medium {
+    font-weight: 500;
+    letter-spacing: .9px;
+}
+.footer__logo {
+    color: #00524d;
+    height: 1.6875rem;
+    width: 4.6875rem;
+}
+.icon--fill, .icon--fill * {
+    fill: currentcolor;
+}
+.icon {
+    /* display: block; */
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    /* vertical-align: baseline; */
+  
+}
+.footer__welcome {
+    border-bottom: 1px solid #ebe5e5;
+    padding-bottom: 2rem;
+}
+.footer__account-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+}
+.button-medium {
+    font-weight: 500;
+    letter-spacing: .9px;
+}
+.cta--theme .cta__label {
+    text-transform: uppercase;
+}
+.footer__links {
+    font-size: .875rem;
+    line-height: 1.1875rem;
+    margin-bottom: 3.3125rem;
+    margin-top: 2.875rem;
+   
+    
+}
+.paragraph-regular, .paragraph-regular-no-spacing {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: .5px;
+    line-height: 1.5rem;
+}
+.footer__links-title {
+    margin-bottom: .5rem;
+}
+.footer__link-item {
+    color: #000;
+    margin-bottom: .625rem;
+    list-style: none;
+}
+.footer-social-media {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 1rem; */
+    gap: 0.5rem;
+    justify-content: flex-start;
+    margin-top: 1.25rem;
+    padding-right:0px;
+
+}
+.footer__links ul {
+    padding-right: 0;
+}
+.row.fotrmenu {
+    gap: 10px 40px;
+}
+.footer-social-media__item {
+    flex: 0 0 1.5rem;
+    height: 1.5rem;
+    overflow: hidden;
+}
+.footer-social-media__cta, .footer-social-media__icon {
+    fill: currentcolor;
+    height: 100%;
+    width: 100%;
+}
+
+a.footer__link {
+    text-decoration: none;
+    color: black;
+}
+.contact-info {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: .25rem;
+    text-decoration: none;
+    /* width: 100%; */
+}
+[dir=rtl] .contact-info__icon-wrap {
+    margin-left: .625rem;
+}
+.contact-info__icon-wrap {
+    color: #00524d;
+    height: 1.5625rem;
+    margin-left: 5px;
+}
+[dir=rtl] .icon--flip {
+    transform: scaleX(-1);
+}
+.contact-info__label--color {
+    color: #00524d;
+    text-transform: lowercase;
+}
+a.cta {
+    color: #000;
+    text-decoration: none;
+}
+.footer__lower {
+    direction: rtl;
+    color: #a78a8a;
+    display: none;
+    font-family: BrandonGrotesque,AvenirArabic,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    font-size: .875rem;
+    font-style: normal;
+    font-weight: 400;
+    justify-content: space-between;
+    letter-spacing: .4px;
+    line-height: 1.1875rem;
+}
+[dir=rtl] .footer__legal-link:not(:last-child) {
+    margin-left: 1.25rem;
+}
+.footer__legal-link {
+    color: #a78a8a;
+    text-transform: capitalize;
+    margin-left: 10px;
+}
+
+
+@media only screen and (max-width:767px){
+.row {
+    direction: ltr;
+}
+.footer__links ul {
+    padding-right: 0;
+    padding-left: 0;
+}
+.footer .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+.row.fotrmenu {
+    justify-content: space-between;
+}
+a.footer__link {
+    font-size: 12px;
+}
+ul.contact-section.contact-section--grid.footer__contact.row {
+    padding-right: 0;
+    padding-left: 0;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.footer__logo-container-section {
+    display: inline-block;
+}
+}

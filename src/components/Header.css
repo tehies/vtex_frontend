@@ -101,3 +101,138 @@
 .header-nav .nav-item:first-child {
     color: rgb(208, 47, 105);
 }
+
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Start hidden off-screen */
+    width: 250px;
+    height: 100%;
+    /* background-color: #333; */
+    background-color: #fff;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    left: 0; /* Slide in from the left */
+}
+
+.sidebar-header {
+    text-align: right;
+    padding: 20px;
+}
+
+.close-icon {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.sidebar-nav .nav-item {
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.2s;
+}
+
+.sidebar-nav .nav-item:hover {
+    background-color: #555;
+}
+
+/* Hamburger Icon */
+.hamburger-icon img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Main Navigation (for desktop) */
+/* .header-nav {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+} */
+
+.header-nav .nav-item:first-child {
+    color: rgb(208, 47, 105);
+}
+
+/* .header-nav .nav-item {
+    font-weight: 500;
+    color: black;
+} */
+
+/* Media Queries */
+@media only screen and (max-width: 767px) {
+    /* Hide main header navigation and links on mobile */
+    .header-nav, .right-links, .header-top-left .middle-section {
+        display: none;
+    }
+
+    /* Display the hamburger icon only on mobile */
+    .hamburger-icon {
+        display: block;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+        left: -250px; /* Start off-screen */
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.open {
+        left: 0; /* Slide in from the left */
+    }
+
+    /* Sidebar navigation items */
+    .sidebar-nav .nav-item {
+        color: #000;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-bottom: 1px solid #444;
+    }
+
+    .sidebar-nav .nav-item:hover {
+        background-color: #555;
+    }
+
+    .close-icon {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+    }
+    .header {
+        height: auto;
+    }
+}
+
+/* Hide the hamburger icon and mobile sidebar on larger screens */
+@media only screen and (min-width: 768px) {
+    .hamburger-icon {
+        display: none; /* Hide hamburger icon on larger screens */
+    }
+
+    .sidebar {
+        display: none; /* Hide sidebar on larger screens */
+    }
+
+    .header-nav, .right-links, .header-top-left .middle-section {
+        display: flex; /* Ensure these elements are visible on larger screens */
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .header-nav a {
+        font-size: .65rem;
+    }
+}

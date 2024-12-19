@@ -30,6 +30,19 @@ const Header = () => {
     const toggleSearchModal = () => {
         setIsSearchOpen((prevState) => !prevState);
     };
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar state
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
+    };
+    if (!isSidebarOpen) {
+       
+        // Remove class from body when closing the sidebar
+         document.body.classList.remove("bodyfixed");
+     } else {
+         // Add class to body when opening the sidebar
+         document.body.classList.add("bodyfixed");
+     } 
+ 
     const getCartItemCount = () => {
         return cart.items.reduce((total, item) => total + item.quantity, 0);
         };
@@ -104,6 +117,35 @@ const Header = () => {
                         </span>
                     </div>
                 </Link>
+
+                    {/* Hamburger Icon */}
+                    <div className="hamburger-icon" onClick={toggleSidebar}>
+                    <img src="/svgexport-2.png" alt="Hamburger" />
+                </div>
+            </div>
+
+            {/* Sidebar Menu for Mobile */}
+            <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+                <div className="sidebar-header">
+                    {/* Close Icon */}
+                    <img
+                        src="/close.png"
+                        alt="Close"
+                        className="close-icon"
+                        onClick={toggleSidebar}
+                    />
+                </div>
+
+                <nav className="sidebar-nav">
+                    <Link to="/discounts" className="nav-item">Discounts</Link>
+                    <Link to="/groups" className="nav-item">Groups</Link>
+                    <Link to="/accessories" className="nav-item">Accessories</Link>
+                    <Link to="/comfortable-clothes" className="nav-item">Comfortable Clothes</Link>
+                    <Link to="/dresses-and-kaftans" className="nav-item">Dresses And Kaftans</Link>
+                    <Link to="/clothes" className="nav-item">Clothes</Link>
+                    <Link to="/new-releases" className="nav-item">New Releases</Link>
+                </nav>
+
             </div>
 
             <nav className="header-nav">

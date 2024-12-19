@@ -4,8 +4,10 @@ import axios from 'axios';
 import './ProductPage.css';
 import { useDispatch } from 'react-redux';
 import { setOrderForm } from './cartSlice';
+import { useTranslation } from "react-i18next";
 
 const ProductPage = () => {
+    const { t, i18n } = useTranslation();
     const skuId = useParams().id;
     const [sku, setSku] = useState(null);
     const [price, setPrice] = useState(null);
@@ -146,9 +148,6 @@ const ProductPage = () => {
 
     return sku ? (
         <div className="single_product-page-container">
-            <div className="single_product-header">
-                <h1>{sku.ProductName || 'Product Name Not Available'}</h1>
-            </div>
             <div className="single_product-details">
                 <div className="single_product-images">
                     {sku.Images?.length > 0 ? (
@@ -180,7 +179,7 @@ const ProductPage = () => {
                     )}
                 </div>
                 <div className="single_product-info">
-                    <h1>
+                    {/* <h1>
                         
                         {sku.ProductName || 'Product Name Not Available'}
 
@@ -189,7 +188,19 @@ const ProductPage = () => {
 
                         {sku.ProductDescription || 'No description available'}
 
-                    </p>
+                    </p> */}
+
+
+               <h1>
+                {i18n.language === "ar" 
+                    ? sku.arabicTitle || t("Product Name Not Available")
+                    : sku.ProductName || t("Product Name Not Available")}
+            </h1>
+            <p className="single_product-description">
+                {i18n.language === "ar" 
+                    ? sku.arabicDescription || t("No description available")
+                    : sku.ProductDescription || t("No description available")}
+            </p>
                     <p className="single_product-price">
                         Price: {price ? `$ ${price.toFixed(2)}` : `${0}`}
                     </p>

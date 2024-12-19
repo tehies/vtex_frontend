@@ -49,11 +49,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    /* align-items: flex-end; */
+    align-items: flex-start;
     /* Align items to the right */
     padding: 20px;
     background-color: #F8F6F5;
-    direction: rtl;
+    /* direction: rtl; */
     /* Set text direction to right-to-left */
 }
 
@@ -61,7 +62,7 @@
     font-size: 41px;
     font-weight: lighter;
     color: #0c0c0c;
-    text-align: right;
+    /* text-align: right; */
     margin-bottom: 2px;
 
 }
@@ -71,7 +72,7 @@
     font-size: 16px;
     color: #8b8888;
     text-align: right;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     /* Align text to the right */
 }
 
@@ -122,4 +123,13 @@
 /* Button Hover */
 .view-collection-button:hover {
     background-color: #333;
+}
+
+@media only screen and (max-width:767px){
+
+.collection-product-grid {display: none!important;}
+.banner-title {font-size: 18px;margin-top: 0;}
+.banner-description {font-size: 12px;text-align: left;}
+.banner-container, .banner-image-tag {height: auto;}
+.banner-container {margin-bottom: 0;}
 }

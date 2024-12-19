@@ -327,3 +327,28 @@
     transform: scale(1.1);
     /* Slight zoom effect on hover */
 }
+
+
+
+
+@media only screen and (max-width:767px){
+.single_product-images, .single_product-info {
+    width: 100%;
+}
+.single_product-description {
+    max-width: 100%;
+}
+.single_product-info {
+    text-align: center;
+    padding: 0 10px;
+}
+}
+
+@media only screen and (min-width:768px)and (max-width:1024px){
+.single_product-info {
+    padding: 0 25px;
+}
+.single_product-description {
+    max-width: 100%;
+}
+}

@@ -5,6 +5,7 @@ import ProductGrid from './components/ProductGrid';
 import ProductPage from './components/ProductPage';
 import Banner from './components/Banner';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import CollectionPage from './components/CollectionPage';
 import SearchComponent from './components/SearchComponent'
 import { useTranslation } from 'react-i18next';
@@ -61,6 +62,7 @@ function App() {
             <Route path="/cart/:orderFormId" element={<Cart />} />
           </Routes>
         </main>
+        <Footer/>
       </div>
     </Router>
   );
