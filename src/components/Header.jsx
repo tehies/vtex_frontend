@@ -12,7 +12,6 @@ const languages = [
 const Header = () => {
 
     const {t} = useTranslation();
-
     const { i18n } = useTranslation();
 
     const changeLanguage = (lng) => {
@@ -63,9 +62,10 @@ const Header = () => {
                         </i>
                     </div>
                     <div className="middle-section">
-                        <select
+                    <select
                             className="language-selector"
                             onChange={(e) => changeLanguage(e.target.value)}
+                            value={i18n.language}
                         >
                             {languages.map((lng) => (
                                 <option key={lng.code} value={lng.code}>
