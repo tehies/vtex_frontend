@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import './SearchModal.css'; // Ensure correct import for your styles
-
+import { useTranslation } from "react-i18next";
 const SearchModal = ({ onClose }) => {
     const [query, setQuery] = useState('');
     const [products, setProducts] = useState([]);
@@ -10,7 +10,7 @@ const SearchModal = ({ onClose }) => {
     const [error, setError] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate(); // Initialize the navigate function
-
+    const { t, i18n } = useTranslation();
     useEffect(() => {
         setIsOpen(true);
     }, []);
@@ -78,9 +78,9 @@ const SearchModal = ({ onClose }) => {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search for products..."
+                    placeholder={t("Search for products")}
                 />
-                <button onClick={handleSearchButtonClick}>Search</button> {/* Search Button */}
+                <button onClick={handleSearchButtonClick}>{t("search")}</button> {/* Search Button */}
 
                 {loading && <p className="nav-loading-text">Loading...</p>}
                 {error && <p className="nav-error-text">{error}</p>}
@@ -93,7 +93,7 @@ const SearchModal = ({ onClose }) => {
                                 className="nav-product-card"
                                 onClick={() => handleProductClick(product)} // Pass entire product object
                             >
-                                <h4 className="nav-product-name">{product.productName}</h4>
+                                {/* <h4 className="nav-product-name">{product.productName}</h4> */}
                                 {product.items && product.items[0]?.images && (
                                     <img
                                         src={product.items[0].images[0].imageUrl}

@@ -179,18 +179,6 @@ const ProductPage = () => {
                     )}
                 </div>
                 <div className="single_product-info">
-                    {/* <h1>
-                        
-                        {sku.ProductName || 'Product Name Not Available'}
-
-                    </h1>
-                    <p className="single_product-description">
-
-                        {sku.ProductDescription || 'No description available'}
-
-                    </p> */}
-
-
                <h1>
                 {i18n.language === "ar" 
                     ? sku.arabicTitle || t("Product Name Not Available")
@@ -205,7 +193,7 @@ const ProductPage = () => {
                         Price: {price ? `$ ${price.toFixed(2)}` : `${0}`}
                     </p>
                     <div className='addtocartBTN'>
-                        <button onClick={handleAddToCart}>Add to Cart</button>
+                        <button onClick={handleAddToCart}>{t("Add to Cart")}</button>
                     </div>
                 </div>
             </div>

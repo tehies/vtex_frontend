@@ -73,3 +73,21 @@
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+@media only screen and (max-width:767px){
+.product-image {
+    height: auto;
+	        max-height: 118px;
+        object-fit: contain;
+}
+.product-grid {
+    gap: 5px;
+    grid-template-columns: repeat(2,1fr);
+	padding: 20px 0;
+}
+.product-heading {
+    font-size: 1.5rem;
+    padding-right: 0;
+    text-align: center;
+}
+}

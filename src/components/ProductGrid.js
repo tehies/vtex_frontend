@@ -1,59 +1,60 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from "react-i18next";
 import './ProductGrid.css';
 
 const ProductGrid = ({ myId }) => {
     const [collectionProducts, setCollectionProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const { t, i18n } = useTranslation(); // Import and use the translation hook
     const collectionId = myId || 138; // Default collection ID if not provided
 
     useEffect(() => {
         const fetchCollectionProducts = async () => {
             try {
-                // const collectionResponse = await axios.get(`http://localhost:3000/collectionProduct?collectionId=${collectionId}`);
                 const collectionResponse = await axios.get(`https://vtex-backend-l0v5.onrender.com/collectionProduct?collectionId=${collectionId}`);
-                if (Array.isArray(collectionResponse.data.Data)) {
-                    const products = collectionResponse.data.Data;
+                if (Array.isArray(collectionResponse.data)) {
+                    const products = collectionResponse.data;
 
                     // Fetch pricing for each product's SkuId
                     const productsWithPrices = await Promise.all(
                         products.map(async (product) => {
                             try {
-                                // const priceResponse = await axios.get(`http://localhost:3000/pricing/${product.SkuId}`);
                                 const priceResponse = await axios.get(`https://vtex-backend-l0v5.onrender.com/pricing/${product.SkuId}`);
-                                console.log(`Price for SkuId ${product.SkuId}:`, priceResponse.data.basePrice);
-
-                                return { ...product, basePrice: priceResponse.data.basePrice || 0 }; // Include basePrice or default to 0
+                                return {
+                                    ...product,
+                                    basePrice: priceResponse.data.basePrice || 0
+                                };
                             } catch (error) {
                                 console.error(`Error fetching price for SkuId ${product.SkuId}:`, error);
-                                return { ...product, basePrice: 0 }; // Default basePrice to 0 on error
+                                return { ...product, basePrice: 0 };
                             }
                         })
                     );
 
                     setCollectionProducts(productsWithPrices);
                 } else {
-                    setError('Invalid response format from collection API');
+                    setError(t("Invalid response format from collection API"));
                 }
             } catch (err) {
-                console.error('Error fetching collection products:', err);
-                setError('Failed to fetch collection products');
+                console.error(t("Error fetching collection products:"), err);
+                setError(t("Failed to fetch collection products"));
             } finally {
                 setLoading(false);
             }
         };
 
         fetchCollectionProducts();
-    }, [collectionId]);
+    }, [collectionId, t]);
 
     if (loading) {
         return (
             <div className="loader-container">
                 <div className="loader"></div>
-                <p>Loading collection products...</p>
+                <p>{t("Loading collection products...")}</p>
             </div>
         );
     }
@@ -64,7 +65,8 @@ const ProductGrid = ({ myId }) => {
 
     return (
         <div className="collection-product-container">
-            <h1 className="product-heading">Collection Products</h1>
+            <h1 className="product-heading">{t("Collection Products")}</h1>
+
             <div className="product-grid">
                 {collectionProducts.length > 0 ? (
                     collectionProducts.map((product) => (
@@ -75,16 +77,19 @@ const ProductGrid = ({ myId }) => {
                                     alt={product.ProductName}
                                     className="product-image"
                                 />
-                                <h3 className="product-name">{product.ProductName}</h3>
+                                <h3 className="product-name">
+                                    {i18n.language === "ar"
+                                        ? product.skuDetails.ProductSpecifications.find(spec => spec.FieldName === "Arabic title")?.FieldValues?.[0] || t("Product Name Not Available")
+                                        : product.ProductName || t("Product Name Not Available")}
+                                </h3>
                                 <p className="product-price">
-                                    {product.basePrice ? `$${(product.basePrice / 100).toFixed(2)}` : '0'}
-                                    {/* {price ? `$${(price / 100).toFixed(2)}` : `${0}`} */}
+                                    {product.basePrice ? `$${(product.basePrice / 100).toFixed(2)}` : t("Price not available")}
                                 </p>
                             </div>
                         </Link>
                     ))
                 ) : (
-                    <p>No products found in this collection.</p>
+                    <p>{t("No products found in this collection.")}</p>
                 )}
             </div>
         </div>
@@ -92,4 +97,3 @@ const ProductGrid = ({ myId }) => {
 };
 
 export default ProductGrid;
-

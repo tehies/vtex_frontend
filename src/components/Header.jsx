@@ -103,7 +103,7 @@ const Header = () => {
                         {t("registerLogin")}
                         </a>
                         <Link to="#" className="link" onClick={toggleSearchModal}>
-                            <i className="icon-search"></i> Search
+                            <i className="icon-search"></i> {t("search")}
                         </Link>
                         {isSearchOpen && <SearchModal onClose={toggleSearchModal} />}
                     </div>
@@ -137,13 +137,13 @@ const Header = () => {
                 </div>
 
                 <nav className="sidebar-nav">
-                    <Link to="/discounts" className="nav-item">Discounts</Link>
-                    <Link to="/groups" className="nav-item">Groups</Link>
-                    <Link to="/accessories" className="nav-item">Accessories</Link>
-                    <Link to="/comfortable-clothes" className="nav-item">Comfortable Clothes</Link>
-                    <Link to="/dresses-and-kaftans" className="nav-item">Dresses And Kaftans</Link>
-                    <Link to="/clothes" className="nav-item">Clothes</Link>
-                    <Link to="/new-releases" className="nav-item">New Releases</Link>
+                    <Link to="/discounts" className="nav-item"> {t("discounts")}</Link>
+                    <Link to="/groups" className="nav-item">  {t("groups")}</Link>
+                    <Link to="/accessories" className="nav-item">{t("accessories")}</Link>
+                    <Link to="/comfortable-clothes" className="nav-item">{t("comfortableClothes")}</Link>
+                    <Link to="/dresses-and-kaftans" className="nav-item"> {t("dressesAndKaftans")}</Link>
+                    <Link to="/clothes" className="nav-item">{t("clothes")}</Link>
+                    <Link to="/new-releases" className="nav-item">{t("newReleases")}</Link>
                 </nav>
 
             </div>

@@ -1,8 +1,11 @@
 import React from "react";
 import '../components/Footer.css';
-
+import { useTranslation } from "react-i18next";
 import { Link } from 'react-router-dom';
 export default function Footer() {
+
+  const { t, i18n } = useTranslation();
+  
   return (
 
     <footer
@@ -25,29 +28,6 @@ export default function Footer() {
                 </svg>
               </span>
             </div>
-            <div className="col-12 col-md-9 col-lg-10 footer__welcome">
-              <div className="header-normal-regular footer__welcome-text">
-              Welcome to Lim
-              </div>
-              <div className="footer__account-container">
-                <button
-                  type="button"
-                  title="تسجيل الدخول"
-                  className="cta cta--theme cta--theme-primary footer__button footer__button--sign-in button-medium"
-                >
-                  <span className="cta__label button-medium">Log in</span>
-                </button>
-                <button
-                  type="button"
-                  title="تسجيل حساب جديد"
-                  className="cta cta--theme cta--theme-light footer__button footer__button--sign-up button-medium"
-                >
-                  <span className="cta__label button-medium">
-                    Register a new account
-                  </span>
-                </button>
-              </div>
-            </div>
           </div>
         </div>
         <div className="row fotrmenu">
@@ -55,17 +35,17 @@ export default function Footer() {
           <div className="offset-lg-2 col-6 col-md-3 col-lg-2">
             <div className="footer__links paragraph-regular">
               <h4 className="footer__links-title" >
-                Information
+                  {t("Information")}
               </h4>
               <ul>
                 <li className="footer__link-item">
                   <a href="/ar/ae/info/about-us" className="footer__link" style={{ direction: "ltr", textAlign: "left" }}>
-                    About Us
+                  {t("About Us")}
                   </a>
                 </li>
                 <li className="footer__link-item">
                   <a href="/ar/ae/info/store-locater" className="footer__link" style={{ direction: "ltr", textAlign: "left" }}>
-                    Branches
+                  {t("Branches")} 
                   </a>
                 </li>
               </ul>
@@ -132,17 +112,17 @@ export default function Footer() {
           <div className="col-6 col-md-3 col-lg-2">
             <div className="footer__links paragraph-regular">
               <h4 className="footer__links-title">
-                Help
+              {t("Help")}
               </h4>
               <ul>
                 <li className="footer__link-item">
                   <a href="/ar/ae/info/faq" className="footer__link" style={{ direction: "ltr", textAlign: "left" }}>
-                    Frequently Asked Questions
+                  {t("Frequently Asked Questions")} 
                   </a>
                 </li>
                 <li className="footer__link-item">
                   <a href="/ar/ae/info/faq" className="footer__link" style={{ direction: "ltr", textAlign: "left" }}>
-                    Shipping & Returns
+                  {t("Shipping & Returns")} 
                   </a>
                 </li>
                 <li className="footer__link-item">
@@ -152,12 +132,12 @@ export default function Footer() {
                     className="footer__link"
                     style={{ direction: "ltr", textAlign: "left" }}
                   >
-                    Size Guide
+                        {t("Size Guide")}
                   </a>
                 </li>
                <li className="footer__link-item">
                   <a href="/Privacy" className="footer__link" style={{ direction: "ltr", textAlign: "left" }}>
-                    Privacy
+                  {t("Privacy")} 
                   </a>
                 </li> 
                   
@@ -254,10 +234,10 @@ export default function Footer() {
 
         <ul>
         <li className="cta footer__legal-link">
-          <Link to="/conditions">Conditions</Link>
+          <Link to="/conditions">{t("Conditions")}</Link>
         </li>
         <li className="cta footer__legal-link">
-          <Link to="/Privacy">Privacy</Link>
+          <Link to="/Privacy">{t("Privacy")}</Link>
         </li>
       </ul>
       </div>

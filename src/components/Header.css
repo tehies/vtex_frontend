@@ -1,6 +1,6 @@
 .header {
     font-family: Arial, sans-serif;
-    padding: 17px 8rem;
+    padding: 17px 2rem;
     max-width: 100%;
     margin: 0px auto;
     margin-top: 0;
@@ -8,6 +8,7 @@
     height: 120px;
 
 }
+
 
 .header-top {
     display: flex;
